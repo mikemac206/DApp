@@ -69,9 +69,12 @@ $( document ).ready(function() {
   for (var i = 0; i < candidateNames.length; i++) {
     let name = candidateNames[i];
     
-    Voting.totalVotesFor(name).then(function(v) {
+    $("#" + candidates[name]).html(ethervote.totalVotesFor(name));
+
+    /*
+    ethervote.totalVotesFor(name).then(function(v) {
       $("#" + candidates[name]).html(v.toString());
     }); 
-    
+    */
   }
 });
