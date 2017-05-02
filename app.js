@@ -69,7 +69,7 @@ $( document ).ready(function() {
   for (var i = 0; i < candidateNames.length; i++) {
     let name = candidateNames[i];
     
-    ethervote.totalVotesFor(web3.sha3(name)).then(function(v) {
+    ethervote.totalVotesFor({candidate: name}).then(function(v) {
       $("#" + candidates[name]).html(v.toString());
     }); 
     
