@@ -40,7 +40,7 @@ window.voteForCandidate = function(candidate) {
     
       ethervote.voteForCandidate(candidateName, {gas: 140000, from: web3.eth.accounts[0]}).then(function() {
         let div_id = candidates[candidateName];
-        return ethervote.totalVotesFor(candidateName).then(function(v) {
+        return ethervote.totalVotesFor(parseInt(candidateName)).then(function(v) {
           $("#" + div_id).html(v.toString());
           $("#msg").html("");
         });
@@ -69,7 +69,7 @@ $( document ).ready(function() {
   for (var i = 0; i < candidateNames.length; i++) {
     let name = candidateNames[i];
     
-    ethervote.totalVotesFor(name).then(function(v) {
+    ethervote.totalVotesFor(parseInt(name)).then(function(v) {
       $("#" + candidates[name]).html(v.toString());
     }); 
     
